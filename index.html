@@ -1,0 +1,411 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Golden Crown Fashion World</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: #111;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #d4af37;
+    }
+
+    .logo {
+      color: #d4af37;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 7%;
+      background:
+        linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
+        url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 80px);
+      color: #d4af37;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #d4af37;
+      color: #111;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      background: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #d4af37;
+      color: white;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #d4af37;
+      font-size: 38px;
+    }
+
+    .section-title p {
+      color: #bbb;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: #181818;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid #292929;
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      border-color: #d4af37;
+    }
+
+    .product img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+
+    /* WHY US */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: #181818;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    .feature span {
+      font-size: 40px;
+    }
+
+    .feature h3 {
+      color: #d4af37;
+      margin: 10px 0;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #151515;
+    }
+
+    .contact p {
+      margin: 10px;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background: #080808;
+      padding: 25px;
+      color: #aaa;
+    }
+
+    footer strong {
+      color: #d4af37;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 28px;
+      z-index: 2000;
+      box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      section {
+        padding: 60px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">👑 GOLDEN CROWN</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <h1>Golden Crown</h1>
+
+      <p>
+        Royal Styles for King and Queen
+      </p>
+
+      <p>
+        Premium African fashion, native wears and stylish outfits
+        made to give you a royal appearance.
+      </p>
+
+      <a href="#products" class="btn">
+        Explore Collection
+      </a>
+
+      <a
+        href="https://wa.me/2348160862831"
+        class="btn btn-outline"
+        target="_blank">
+        Order on WhatsApp
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="section-title">
+      <h2>About Golden Crown</h2>
+      <p>Fashion made with style and class</p>
+    </div>
+
+    <div class="about">
+
+      <p>
+        <strong>Golden Crown Fashion World</strong> is a fashion brand
+        dedicated to providing stylish and quality clothing for people
+        who want to look elegant and confident.
+      </p>
+
+      <br>
+
+      <p>
+        From traditional African outfits to modern streetwear,
+        we create styles that make you stand out.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section id="products">
+
+    <div class="section-title">
+      <h2>Our Collections</h2>
+      <p>Discover your royal style</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80"
+          alt="Senator Wear">
+        <div class="product-info">
+          <h3>Senator Wears</h3>
+          <p>Elegant traditional styles for special occasions.</p>
+        </div>
+      </div>
+
+
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=80"
+          alt="Agbada">
+        <div class="product-info">
+          <h3>Agbada</h3>
+          <p>Premium African royal outfits.</p>
+        </div>
+      </div>
+
+
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?auto=format&fit=crop&w=800&q=80"
+          alt="Native Wear">
+        <div class="product-info">
+          <h3>Native Wear</h3>
+          <p>Classic native designs with a modern touch.</p>
+        </div>
+      </div>
+
+
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"
+          alt="Joggers">
+        <div class="product-info">
+          <h3>Joggers</h3>
+          <p>Comfortable and fashionable streetwear.</p>
+        </div>
+      </div>
+
+
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+          alt="T-Shirts">
+        <div class="product-info">
+          <h3>Luxury T-Shirts</h3>
+          <p>Clean and stylish everyday fashion.</p>
+        </div>
+      </div>
+
+
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80"
+          alt="School Vest">
+        <div class="product-info">
+          <h3>School Vest Wears</h3>
+          <p>Quality school clothing and custom designs.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
